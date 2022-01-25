@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+<div id="mydiv"></div>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+
+<h1 id="demo2"></h1>
+
+<script>
+    class Car {
+        constructor(mod) {
+            this.brand = mod;
+        }
+
+        present() {
+            return 'I have a ' + this.brand;
+        }
+    }
+
+    class Model extends Car {
+        constructor(name,mod) {
+            super(mod);
+            this.model = name;
+        }
+        show() {
+            return this.present() + ', its is a ' + this.model;
+        }
+    }
+
+    mycar = new Model("Ford","BMW");
+    mycar.show();
+
+
+    document.write(mycar.show());
+</script>
+
+<script>
+    function calculate(a, b) {
+        const add = a + b;
+        const subtract = a - b;
+        const multiply = a * b;
+        const divide = a / b;
+
+        return [add, subtract, multiply, divide];
+    }
+
+    const [add, subtract, multiply, divide] = calculate(4, 7);
+
+    document.write("<p>Sum: " + add + "</p>");
+    document.write("<p>Difference " + subtract + "</p>");
+    document.write("<p>Product: " + multiply + "</p>");
+    document.write("<p>Quotient " + divide + "</p>");
+
+    const numbersOne = [1, 2, 3,1, 2, 3];
+    const numbersTwo = [4, 5, 6];
+    const numbersCombined = [...numbersOne, ...numbersTwo];
+
+    document.write(numbersCombined);
+
+
+
+</script>
+
+<script type="module">
+    import { name, age } from "./person.js";
+
+    document.getElementById("demo").innerHTML = "My name is " + name;
+    document.getElementById("demo").innerHTML += ", I am " + age + ".";
+
+</script>
+
+<script type="module">
+    import  message  from "./message.js";
+
+    document.getElementById("demo1").innerHTML =  message();
+
+</script>
+
+<script>
+    function renderApp() {
+        document.getElementById("demo2").innerHTML = "Welcome!";
+    }
+
+    function renderLogin() {
+        document.getElementById("demo2").innerHTML = "Please log in";
+    }
+
+    let authenticated = true;
+
+    authenticated ? renderApp() : renderLogin();
+
+</script>
+
+</body>
+</html>
